@@ -5,23 +5,36 @@
 git clone https://github.com/alexcheva/restaurant-order-management.git
 cd restaurant-order-management
 ```
-### Step 2 — Initialize PostgreSQL database
+### Step 2 —  Database Setup
 
-#### Create a database named restaurant_db:
+To recreate the database locally:
 
 ```bash
 createdb restaurant_db
 ```
 
-#### Open psql and run the provided SQL schema and data:
+Import the schema and sample data:
 
 ```bash
-psql -d restaurant_db -f db/schema.sql
-psql -d restaurant_db -f db/sample_data.sql
+psql -U <your_username> -d restaurant_db -f db/restaurant_db_dump.sql
 ```
-
-#### (Optional) Verify:
+Confirm setup:
 
 ```bash
-psql restaurant_db -c "SELECT * FROM restaurant.customers;"
+psql -d restaurant_db -c "\dt"
+```
+### Step 3 - backend
+```bash
+cd server
+npm install
+```
+#### Create your `server/.env` file:
+```
+PORT=4000
+DATABASE_URL=postgresql://YOUR_USERNAME@localhost:5432/restaurant_db
+```
+<!-- Now visit http://localhost:4000/api/orders to confirm data loads as JSON. -->
+### Run backend:
+```bash
+npm run dev
 ```
