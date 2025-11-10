@@ -15,4 +15,10 @@ router.get("/popular-items", async (_, res) => {
   res.json(rows);
 });
 
+// Daily sales summary
+router.get("/sales", async (_, res) => {
+  const { rows } = await pool.query("SELECT * FROM sales_summary_by_day ORDER BY day DESC LIMIT 10;");
+  res.json(rows);
+});
+
 export default router;

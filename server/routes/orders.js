@@ -2,6 +2,14 @@ import express from "express";
 import { pool } from "../db.js";
 
 const router = express.Router();
+//     delivery_id bigint NOT NULL,
+//     order_id bigint,
+//     driver_id bigint,
+//     pickup_time timestamp with time zone,
+//     delivered_time timestamp with time zone,
+//     estimated_time interval,
+//     status text,
+//     CONSTRAINT deliveries_status_check CHECK ((status = ANY (ARRAY['assigned'::text, 'en_route'::text, 'delivered'::text, 'failed'::text, 'cancelled'::text])))
 
 // Get all recent orders
 router.get("/", async (req, res) => {
@@ -33,6 +41,64 @@ router.get("/:id", async (req, res) => {
     GROUP BY o.order_id, c.first_name, c.last_name;
   `, [id]);
   res.json(rows[0]);
+});
+
+
+// READ single order
+router.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await pool.query(
+      `SELECT * FROM orders WHERE order_id = $1`,
+      [id]
+    );
+    res.json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// CREATE order
+router.post("/", async (req, res) => {
+  try {
+    const { customer_id, order_status, order_type, payment_method, total_price } = req.body;
+    const result = await pool.query(
+      `INSERT INTO orders (customer_id, order_status, order_type, payment_method, total_price)
+       VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+      [customer_id, order_status, order_type, payment_method, total_price]
+    );
+    res.json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// UPDATE order
+router.put("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { order_status, total_price } = req.body;
+    const result = await pool.query(
+      `UPDATE orders
+       SET order_status=$1, total_price=$2
+       WHERE order_id=$3 RETURNING *`,
+      [order_status, total_price, id]
+    );
+    res.json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// DELETE order
+router.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    await pool.query("DELETE FROM orders WHERE order_id = $1", [id]);
+    res.json({ message: "Order deleted" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 export default router;

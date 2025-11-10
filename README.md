@@ -1,4 +1,16 @@
 # Restaurant Order Management App
+<!-- A gif of your finished product in action (client, server, and/or database)
+The exercise you chose and why
+A short explanation of what you built
+How to test/demo/run your project (NOTE: a 'working' exercise is awesome, however it is NOT a hard requirement. We mean it!)
+Feedback/notes (i.e. if something was hard, confusing, frustrating, etc)
+Anything else you'd lke us to know about your submission (such as resources used, client and/or server requirements)
+What you would add/change if you had more time
+Clear and concise documentation explaining the code.
+Any external libraries or APIs used are properly documented.
+Instructions on how to set up and run the application are provided. -->
+
+
 ## Tech stack:
 - Backend: Node.js (Express) + PostgreSQL
 - Frontend: React (Vite)
