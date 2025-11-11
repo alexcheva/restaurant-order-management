@@ -8,4 +8,9 @@ export default defineConfig({
       "/api": "http://localhost:4000", // Express backend
     },
   },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./src/setupTests.js",
+  },
 });

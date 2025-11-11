@@ -42,8 +42,6 @@ I would add more charts on the dashboard, like Total Revenue, Delivery Performan
 | [dotenv](https://www.npmjs.com/package/dotenv)   | Environment variable management          |
 | [nodemon](https://www.npmjs.com/package/nodemon) | Live reload during development           |
 
-
-
 ## Tech stack:
 - Backend: Node.js (Express) + PostgreSQL
 - Frontend: React (Vite)
@@ -99,12 +97,12 @@ npm run dev
 cd client
 npm install
 ```
-<!-- #### Create your `client/.env` file:
-```
-REACT_APP_API_URL=http://localhost:4000
-``` -->
 
 ### Run Frontend:
 ```bash
 npm run dev
+```
+### (Optional) Run tests:
+```bash
+npm run test
 ```
