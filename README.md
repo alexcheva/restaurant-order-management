@@ -72,7 +72,9 @@ Confirm setup:
 ```bash
 psql -d restaurant_db -c "\dt"
 ```
-After installing the database, create views:
+IMPORTANT: create views:
+
+Paste `db/views.sql` in postgress to recreate the views.
 
 
 ### Step 3 - Backend setup
