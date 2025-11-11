@@ -1,22 +1,45 @@
 # Restaurant Order Management App
 A full-stack web application that manages a restaurant’s menu, customer orders, deliveries, and sales analytics — complete with a Material UI dashboard and interactive charts.
 
-A gif of your finished product in action (client, server, and/or database)
-The exercise you chose and why
-I used to work in a restaurant, and this project spoke to me!
-A short explanation of what you built
-I build a Restaurant Management dashboard using Vite, React, Material, and Recharts.  
-How to test/demo/run your project (NOTE: a 'working' exercise is awesome, however it is NOT a hard requirement. We mean it!)
-After installing the database, create views:
+This project demonstrates a complete restaurant management system with:
 
-Feedback/notes (i.e. if something was hard, confusing, frustrating, etc)
-Feedback notes:
-Frustrating was getting the right data from the postgress and visualizing it.
-Anything else you'd lke us to know about your submission (such as resources used, client and/or server requirements)
-What you would add/change if you had more time
-I would add more charts on the dashboard, like Total Revenue, Delivery Performance. As well as polish the code, and add CRUD fuctionality to orders and delivery.
-Clear and concise documentation explaining the code.
-Any external libraries or APIs used are properly documented.
+- Normalized PostgreSQL database (menu, customers, orders, deliveries)
+- Express + Node.js backend with RESTful API endpoints
+- React + Vite frontend built with Material UI and Recharts
+- Dynamic analytics dashboard using PostgreSQL views and stored procedures
+
+A gif of your finished product in action (client, server, and/or database)
+
+**The exercise you chose and why:**
+I used to work in a restaurant, and this project spoke to me!
+
+**A short explanation of what you built:**
+I build a Restaurant Management dashboard using Vite, React, Material, and Recharts.  
+
+**Feedback notes:**
+It was frustrating getting the right data from the postgress, working with complex queries and views.
+
+**What you would add/change if you had more time:**
+I would add more charts on the dashboard, like Total Revenue, Delivery Performance. As well as polish the code, and add CRUD fuctionality to orders and delivery. Add tests.
+
+### External libraries used:
+
+#### Frontend:
+| Library                           | Purpose                                    |
+| --------------------------------- | ------------------------------------------ |
+| [React](https://react.dev/)       | Component-based frontend UI                |
+| [Vite](https://vitejs.dev/)       | Fast local development + HMR               |
+| [Material UI](https://mui.com/)   | Layout, tables, modals, and styling        |
+| [Recharts](https://recharts.org/) | Data visualization (pie, bar, line charts) |
+| [Axios](https://axios-http.com/)  | REST API calls                             |
+
+#### Backend:
+| Library                                          | Purpose                                  |
+| ------------------------------------------------ | ---------------------------------------- |
+| [Express](https://expressjs.com/)                | RESTful API framework                    |
+| [pg](https://node-postgres.com/)                 | PostgreSQL connection and query handling |
+| [dotenv](https://www.npmjs.com/package/dotenv)   | Environment variable management          |
+| [nodemon](https://www.npmjs.com/package/nodemon) | Live reload during development           |
 
 
 
@@ -49,6 +72,9 @@ Confirm setup:
 ```bash
 psql -d restaurant_db -c "\dt"
 ```
+After installing the database, create views:
+
+
 ### Step 3 - Backend setup
 ```bash
 cd server
