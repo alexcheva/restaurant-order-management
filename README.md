@@ -8,7 +8,8 @@ This project demonstrates a complete restaurant management system with:
 - React + Vite frontend built with Material UI and Recharts
 - Dynamic analytics dashboard using PostgreSQL views and stored procedures
 
-A gif of your finished product in action (client, server, and/or database)
+**A gif of your finished product in action:**
+![restaurant_app](./restaurant-app.gif)<br />
 
 **The exercise you chose and why:**
 I used to work in a restaurant, and this project spoke to me!
