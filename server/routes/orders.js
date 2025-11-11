@@ -75,6 +75,7 @@ router.post("/", async (req, res) => {
 
 // UPDATE order
 router.put("/:id", async (req, res) => {
+  console.log("update order", req.params)
   try {
     const { id } = req.params;
     const { order_status, total_price } = req.body;
